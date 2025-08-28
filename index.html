@@ -19,6 +19,11 @@
         .header { display: flex; justify-content: space-between; align-items: center; padding: 10px; }
         .telegram-link { display: flex; align-items: center; text-decoration: none; color: #0088cc; font-weight: bold; }
         .telegram-link img { width: 24px; height: 24px; margin-right: 5px; }
+        /* Overlay */
+        #overlay {
+            display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+            background:rgba(0,0,0,0.6); z-index:999;
+        }
         /* Box Info */
         #info-box {
             display:none; position:fixed; top:20%; left:50%; transform:translateX(-50%);
@@ -30,10 +35,20 @@
             border-radius:5px; cursor:pointer;
         }
       </style>
+      <script>
+        function openInfo() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('info-box').style.display = 'block';
+        }
+        function closeInfo() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('info-box').style.display = 'none';
+        }
+      </script>
     </head>
     <body>
      <div class="header">
-        <h1>📺 Live Matches - 28/08/2025 15:19:55</h1>
+        <h1>📺 Live Matches - 28/08/2025 15:21:01</h1>
         <div style="display:flex; gap:15px; align-items:center;">
             <!-- Telegram -->
             <a class="telegram-link" href="https://t.me/scanner_bet_money" target="_blank" title="Iscriviti al canale Telegram">
@@ -41,14 +56,14 @@
                 Subscribe
             </a>
             <!-- Info -->
-            <span onclick="document.getElementById('info-box').style.display='block'"
-                  style="cursor:pointer; font-size:22px;" title="Come funziona">
-                ℹ️
-            </span>
+            <span onclick="openInfo()" style="cursor:pointer; font-size:22px;" title="Come funziona">ℹ️</span>
         </div>
      </div>
 
-     <!-- Box Info nascosto -->
+     <!-- Overlay scuro -->
+     <div id="overlay" onclick="closeInfo()"></div>
+
+     <!-- Box Info -->
      <div id="info-box">
         <h2>ℹ️ Come funziona</h2>
         <p>
@@ -59,7 +74,7 @@
         🔄 Aggiornamento automatico ogni 60 secondi.
         </p>
         <div style="text-align:right;">
-            <button onclick="document.getElementById('info-box').style.display='none'">Chiudi</button>
+            <button onclick="closeInfo()">Chiudi</button>
         </div>
      </div>
 
