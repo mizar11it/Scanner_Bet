@@ -96,7 +96,7 @@
     </head>
     <body>
      <div class="header">
-       <h1>📺 Live Matches - 04/09/2025 21:37:30</h1>
+       <h1>📺 Live Matches - 04/09/2025 21:38:47</h1>
        <div style="display:flex; gap:15px; align-items:center;">
            <!-- Telegram -->
            <a class="telegram-link" href="https://t.me/scanner_bet_money" target="_blank" title="Iscriviti al canale Telegram">
@@ -109,78 +109,57 @@
             </a>
        </div>
     </div>
-    <!-- Box Info nascosto -->
-    <div id="info-box" style="display:none; position:fixed; top:20%; left:50%; transform:translateX(-50%);
-     width:80%; max-width:500px; background:#fff; border:1px solid #ccc; border-radius:8px;
-     box-shadow:0 0 10px rgba(0,0,0,0.3); padding:20px; z-index:1000; text-align:left;">
-   <h2> Come funziona</h2>
-   <p>
-   Questa applicazione si propone di analizzare in tempo reale i dati statistici
-   di una partita di calcio e di inviare segnali di alert quando, secondo le informazioni
-   disponibili, potrebbe verificarsi un goal. I segnali forniti non costituiscono in alcun
-   modo un incentivo o una promozione al gioco d’azzardo: l’obiettivo principale è lo studio,
-   l’approfondimento e la comprensione delle
-   dinamiche delle partite attraverso i dati statistici.<br><br>
-  
-   This application is designed to analyze real-time statistical data of a
-   football match and to send alert signals when, based on the available
-   information, a goal might occur. The alerts are not intended as an
-   incentive or promotion for gambling; the main purpose
-   is the study, analysis, and understanding of match dynamics through statistical data.<br><br>
-    Le statistiche saranno visualizzabili dal 50 minuto <br><br>
-   <b>xG Stats (Expected Goals):</b> misura le probabilità di segnare in base alle statistiche.<br><br>
-   <b>xG Quote (Expected Goals):</b> stima il gol atteso basandosi sul valore delle quote attuale rispetto a quelle generalemnte attese.<br><br>
-   <b>Alert 🚨:</b> appare quando i modelli indicano alta probabilità di gol imminente.<br><br>
-   <b>Telegram:</b> viene inviato un avviso su telegram quando i modelli indicano alta probabilità di gol imminente.<br><br>
-   Aggiornamento automatico ogni 300 secondi.
-   </p>
-   <div style="text-align:right;">
-       <button onclick="document.getElementById('info-box').style.display='none'"
-               style="padding:5px 10px; border:none; background:#0088cc; color:#fff; border-radius:5px; cursor:pointer;">
-           Chiudi
-       </button>
-   </div>
+<!-- Box Info nascosto -->
+<div id="info-box" style="
+    display:none; 
+    position:fixed; 
+    top:20%; 
+    left:50%; 
+    transform:translateX(-50%);
+    width:80%; 
+    max-width:500px; 
+    max-height:70vh;       /* altezza massima relativa alla finestra */
+    overflow-y:auto;       /* scroll verticale se serve */
+    background:#fff; 
+    border:1px solid #ccc; 
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.3); 
+    padding:20px; 
+    z-index:1000; 
+    text-align:left;
+">
+    <h2>Come funziona</h2>
+    <p>
+        Questa applicazione si propone di analizzare in tempo reale i dati statistici
+        di una partita di calcio e di inviare segnali di alert quando, secondo le informazioni
+        disponibili, potrebbe verificarsi un goal. I segnali forniti non costituiscono in alcun
+        modo un incentivo o una promozione al gioco d’azzardo: l’obiettivo principale è lo studio,
+        l’approfondimento e la comprensione delle
+        dinamiche delle partite attraverso i dati statistici.<br><br>
+
+        This application is designed to analyze real-time statistical data of a
+        football match and to send alert signals when, based on the available
+        information, a goal might occur. The alerts are not intended as an
+        incentive or promotion for gambling; the main purpose
+        is the study, analysis, and understanding of match dynamics through statistical data.<br><br>
+        
+        Le statistiche saranno visualizzabili dal 50 minuto <br><br>
+        <b>xG Stats (Expected Goals):</b> misura le probabilità di segnare in base alle statistiche.<br><br>
+        <b>xG Quote (Expected Goals):</b> stima il gol atteso basandosi sul valore delle quote attuale rispetto a quelle generalmente attese.<br><br>
+        <b>Alert 🚨:</b> appare quando i modelli indicano alta probabilità di gol imminente.<br><br>
+        <b>Telegram:</b> viene inviato un avviso su telegram quando i modelli indicano alta probabilità di gol imminente.<br><br>
+        Aggiornamento automatico ogni 300 secondi.
+    </p>
+    <div style="text-align:right; margin-top:10px;">
+        <button onclick="document.getElementById('info-box').style.display='none'"
+                style="padding:5px 10px; border:none; background:#007bff; color:#fff; border-radius:4px; cursor:pointer;">
+            Chiudi
+        </button>
+    </div>
 </div>
+
      <div class="matches-grid">
     
-        <div class="match-card">
-            <div class="league">Second League (Egypt)</div>
-            <div class="team-row">
-                <div><img src="https://media.api-sports.io/football/teams/18031.png" class="team-logo" alt="Logo El Seka El Hadid">El Seka El Hadid</div>
-                <div>
-                    <strong style="color:black; background:transparent;">
-                        0
-                    </strong>
-                </div>
-            </div>
-
-            <div class="team-row">
-                <div><img src="https://media.api-sports.io/football/teams/16432.png" class="team-logo" alt="Logo El Mansura">El Mansura</div>
-                <div>
-                    <strong style="color:black; background:transparent;">
-                        1
-                    </strong>
-                </div>
-            </div>
-
-
-            <div style="display: flex; justify-content: center;" class="elapsed">90ʼ</div>
-
-            <div style="text-align: center;" class="odds">
-                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
-                    <div style="display: flex; justify-content: center; gap: 30px;">
-                      <div style="font-size: 1.10em">1:<strong> 151.00</strong></div>
-                      <div style="font-size: 1.10em">X:<strong> 21.00</strong></div>
-                      <div style="font-size: 1.10em">2:<strong> 1.01</strong></div>
-                    </div>
-             </div>
-             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
-
-            
-
-            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
-        </div>
-        
         <div class="match-card">
             <div class="league">Carioca C (Brazil)</div>
             <div class="team-row">
@@ -202,14 +181,14 @@
             </div>
 
 
-            <div style="display: flex; justify-content: center;" class="elapsed">85ʼ</div>
+            <div style="display: flex; justify-content: center;" class="elapsed">86ʼ</div>
 
             <div style="text-align: center;" class="odds">
                 <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
                     <div style="display: flex; justify-content: center; gap: 30px;">
-                      <div style="font-size: 1.10em">1:<strong> 1.11</strong></div>
-                      <div style="font-size: 1.10em">X:<strong> 6.50</strong></div>
-                      <div style="font-size: 1.10em">2:<strong> 34.00</strong></div>
+                      <div style="font-size: 1.10em">1:<strong> 1.06</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> 10.00</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> 41.00</strong></div>
                     </div>
              </div>
              <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
@@ -323,8 +302,8 @@
             <div style="text-align: center;" class="odds">
                 <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
                     <div style="display: flex; justify-content: center; gap: 30px;">
-                      <div style="font-size: 1.10em">1:<strong> 51.00</strong></div>
-                      <div style="font-size: 1.10em">X:<strong> 26.00</strong></div>
+                      <div style="font-size: 1.10em">1:<strong> 67.00</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> 29.00</strong></div>
                       <div style="font-size: 1.10em">2:<strong> 1.01</strong></div>
                     </div>
              </div>
@@ -344,9 +323,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>3.00</strong></span>
+                      <span style="margin-right: 10px;"><strong>2.75</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 2.5 Over  </span>
-                      <span><strong>1.36</strong></span>
+                      <span><strong>1.40</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -354,9 +333,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>1.65</strong></span>
+                      <span style="margin-right: 10px;"><strong>1.62</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 3.5 Over  </span>
-                      <span><strong>2.20</strong></span>
+                      <span><strong>2.25</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -401,7 +380,7 @@
             <div style="text-align: center;" class="odds">
                 <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
                     <div style="display: flex; justify-content: center; gap: 30px;">
-                      <div style="font-size: 1.10em">1:<strong> 2.25</strong></div>
+                      <div style="font-size: 1.10em">1:<strong> 2.30</strong></div>
                       <div style="font-size: 1.10em">X:<strong> 3.25</strong></div>
                       <div style="font-size: 1.10em">2:<strong> 3.20</strong></div>
                     </div>
@@ -412,9 +391,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>6.00</strong></span>
+                      <span style="margin-right: 10px;"><strong>5.50</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 1.5 Over  </span>
-                      <span><strong>1.12</strong></span>
+                      <span><strong>1.14</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -610,7 +589,7 @@
             </div>
 
 
-            <div style="display: flex; justify-content: center;" class="elapsed">38ʼ</div>
+            <div style="display: flex; justify-content: center;" class="elapsed">39ʼ</div>
 
             <div style="text-align: center;" class="odds">
                 <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
@@ -636,9 +615,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>1.61</strong></span>
+                      <span style="margin-right: 10px;"><strong>1.57</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 2.5 Over  </span>
-                      <span><strong>2.20</strong></span>
+                      <span><strong>2.25</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -646,9 +625,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>1.18</strong></span>
+                      <span style="margin-right: 10px;"><strong>1.17</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 3.5 Over  </span>
-                      <span><strong>4.50</strong></span>
+                      <span><strong>5.00</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -672,8 +651,8 @@
             <div class="team-row">
                 <div><img src="https://media.api-sports.io/football/teams/1532.png" class="team-logo" alt="Logo Algeria">Algeria</div>
                 <div>
-                    <strong style="color:green; background:yellow;">
-                        1 ⚽
+                    <strong style="color:black; background:transparent;">
+                        1
                     </strong>
                 </div>
             </div>
@@ -688,14 +667,14 @@
             </div>
 
 
-            <div style="display: flex; justify-content: center;" class="elapsed">37ʼ</div>
+            <div style="display: flex; justify-content: center;" class="elapsed">38ʼ</div>
 
             <div style="text-align: center;" class="odds">
                 <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
                     <div style="display: flex; justify-content: center; gap: 30px;">
-                      <div style="font-size: 1.10em">1:<strong> 1.03</strong></div>
-                      <div style="font-size: 1.10em">X:<strong> 15.00</strong></div>
-                      <div style="font-size: 1.10em">2:<strong> 51.00</strong></div>
+                      <div style="font-size: 1.10em">1:<strong> 1.05</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> 11.00</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> 34.00</strong></div>
                     </div>
              </div>
              <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
@@ -704,9 +683,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>4.50</strong></span>
+                      <span style="margin-right: 10px;"><strong>4.33</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 1.5 Over  </span>
-                      <span><strong>1.18</strong></span>
+                      <span><strong>1.20</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -724,9 +703,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>1.28</strong></span>
+                      <span style="margin-right: 10px;"><strong>1.25</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 3.5 Over  </span>
-                      <span><strong>3.50</strong></span>
+                      <span><strong>3.75</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -766,13 +745,13 @@
             </div>
 
 
-            <div style="display: flex; justify-content: center;" class="elapsed">36ʼ</div>
+            <div style="display: flex; justify-content: center;" class="elapsed">37ʼ</div>
 
             <div style="text-align: center;" class="odds">
                 <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
                     <div style="display: flex; justify-content: center; gap: 30px;">
-                      <div style="font-size: 1.10em">1:<strong> 1.06</strong></div>
-                      <div style="font-size: 1.10em">X:<strong> 9.50</strong></div>
+                      <div style="font-size: 1.10em">1:<strong> 1.07</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> 9.00</strong></div>
                       <div style="font-size: 1.10em">2:<strong> 41.00</strong></div>
                     </div>
              </div>
@@ -782,9 +761,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>4.00</strong></span>
+                      <span style="margin-right: 10px;"><strong>3.75</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 1.5 Over  </span>
-                      <span><strong>1.22</strong></span>
+                      <span><strong>1.25</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -792,9 +771,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>1.73</strong></span>
+                      <span style="margin-right: 10px;"><strong>1.67</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 2.5 Over  </span>
-                      <span><strong>2.00</strong></span>
+                      <span><strong>2.10</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -802,9 +781,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>1.22</strong></span>
+                      <span style="margin-right: 10px;"><strong>1.20</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 3.5 Over  </span>
-                      <span><strong>4.00</strong></span>
+                      <span><strong>4.33</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -812,9 +791,9 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>1.06</strong></span>
+                      <span style="margin-right: 10px;"><strong>1.05</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 4.5 Over  </span>
-                      <span><strong>10.00</strong></span>
+                      <span><strong>11.00</strong></span>
                     </div>                                      
                   </div>
                 </div>
@@ -828,8 +807,8 @@
             <div class="team-row">
                 <div><img src="https://media.api-sports.io/football/teams/1530.png" class="team-logo" alt="Logo Cameroon">Cameroon</div>
                 <div>
-                    <strong style="color:green; background:yellow;">
-                        3 ⚽
+                    <strong style="color:black; background:transparent;">
+                        3
                     </strong>
                 </div>
             </div>
@@ -844,14 +823,14 @@
             </div>
 
 
-            <div style="display: flex; justify-content: center;" class="elapsed">34ʼ</div>
+            <div style="display: flex; justify-content: center;" class="elapsed">35ʼ</div>
 
             <div style="text-align: center;" class="odds">
                 <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
                     <div style="display: flex; justify-content: center; gap: 30px;">
-                      <div style="font-size: 1.10em">1:<strong> 1.00</strong></div>
-                      <div style="font-size: 1.10em">X:<strong> 51.00</strong></div>
-                      <div style="font-size: 1.10em">2:<strong> 151.00</strong></div>
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
                     </div>
              </div>
              <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
@@ -860,23 +839,19 @@
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>7.00</strong></span>
+                      <span style="margin-right: 10px;"><strong>6.50</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 3.5 Over  </span>
-                      <span><strong>1.10</strong></span>
+                      <span><strong>1.11</strong></span>
                     </div>                                      
                   </div>
                 </div>
                 
-                    <div style="margin-top:8px; font-size: 0.85em; text-align:center;">
-                        ⚽ <strong>Expected Goal (Quote):</strong> 1.15
-                    </div>
-                    
                 <div class="under-over-odds">
                   <div class="handicap-row">
                      <div class="handicap-label">
-                      <span style="margin-right: 10px;"><strong>2.62</strong></span>
+                      <span style="margin-right: 10px;"><strong>2.50</strong></span>
                       <span style="margin-right: 10px; font-weight: normal">  Under 4.5 Over  </span>
-                      <span><strong>1.44</strong></span>
+                      <span><strong>1.50</strong></span>
                     </div>                                      
                   </div>
                 </div>
