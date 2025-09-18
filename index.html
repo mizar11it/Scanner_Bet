@@ -1,0 +1,1747 @@
+
+    <!DOCTYPE html>
+    <html lang="it">
+    <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-78PQYZ1G33"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-78PQYZ1G33');
+      </script><meta charset="UTF-8">
+      <meta http-equiv="refresh" content="60">
+        <title>Live Matches</title>
+        <style>
+            body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; padding: 20px; text-align: center; }
+            .matches-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 15px;
+                justify-content: center;
+            }
+            .match-card {
+                background: white;
+                padding: 10px;
+                border-radius: 8px;
+                font-size: 0.95em;
+                box-shadow: 0 0 5px rgba(0,0,0,0.08);
+                text-align: left;
+            }
+                        .team-logo { height: 16px; vertical-align: middle; margin-right: 5px; }
+            .team-row { display: flex; justify-content: space-between; margin: 4px 0; }
+            .elapsed { color: #d90429; font-weight: bold; margin: 5px 0; }
+            .league { font-weight: bold; margin-bottom: 10px; }
+            .odds { margin-top: 10px; font-size: 0.9em; }
+            .stats { margin-top: 15px;font-size: 0.9em; text-align: center; }
+            .stat-name { font-weight: bold; margin-top: 10px; }
+            .bar-wrapper {
+                display: flex; align-items: center; justify-content: center; gap: 8px; margin: 4px 0;
+                font-size: 0.75em;
+            }
+            .bar-container {
+                display: flex; width: 50%; height: 12px;  background: #ddd; border-radius: 6px; overflow: hidden;
+            }
+            .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .telegram-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #0088cc; /* Colore Telegram */
+            font-weight: bold;
+        }
+        @keyframes blink {
+          50% { color: red; }
+        }
+        .goal-highlight {
+          color: green;
+          font-weight: bold;
+          animation: blink 1s linear infinite;
+        }
+        .telegram-link img {
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+        }
+            .bar1 { background-color: #007bff; height: 100%; }
+            .bar2 { background-color: #dc3545; height: 100%; }
+            .no-stats { font-style: italic; color: #666; margin-top: 10px; }
+            /* Stili Under/Over */
+            .under-over {
+                margin-top: 10px;
+                font-size: 0.8em;
+                text-align: center;
+            }
+            .under-over-odds {
+                margin-top: 10px;
+                font-size: 1.10em;
+                text-align: center;
+            }
+            .handicap-row {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin: 4px 0;
+            }
+            .handicap-label {
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .handicap-odd {
+                min-width: 30px;
+                text-align: center;
+            }
+            .icon-up {
+                color: green;
+            }
+            .icon-down {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+     <div class="header">
+       <h1>📺 Live Matches - 18/09/2025 21:23:17</h1>
+       <div style="display:flex; gap:15px; align-items:center;">
+        <!-- Contact -->
+        <a href="javascript:void(0);" 
+           onclick="document.getElementById('contact-box').style.display='block'" 
+           title="mizar11it@gmail.com"
+           style="display:flex; align-items:center; gap:8px; text-decoration:none; style="margin-right:25px;"">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email" width="28" height="28">
+            Contact
+        </a>
+        <!-- Telegram -->
+        <a class="telegram-link" href="https://t.me/scanner_bet_money" target="_blank" title="Iscriviti al canale Telegram" style="display:flex; align-items:center; gap:8px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="28" height="28">
+            Subscribe
+        </a>
+
+        <!-- QR Code Telegram -->
+        <a href="https://t.me/scanner_bet_money" target="_blank" title="Scansiona per unirti al canale">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://t.me/scanner_bet_money&size=80x80" 
+                 alt="QR Code Telegram" width="80" height="80" style="border-radius:8px;">
+        </a>
+
+        <!-- Info -->
+        <a href="javascript:void(0);" onclick="document.getElementById('info-box').style.display='block'" title="Come funziona" style="margin-left:25px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#555" viewBox="0 0 16 16" style="cursor:pointer;">
+                <path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 
+                1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533l.738-3.468c.194-.897-.105-1.319-.808-1.319zM8 
+                4.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </svg>
+        </a>
+    </div>
+    </div>
+<!-- Box Info nascosto -->
+<div id="info-box" style="
+    display:none; 
+    position:fixed; 
+    top:20%; 
+    left:50%; 
+    transform:translateX(-50%);
+    width:80%; 
+    max-width:500px; 
+    max-height:70vh;       /* altezza massima relativa alla finestra */
+    overflow-y:auto;       /* scroll verticale se serve */
+    background:#fff; 
+    border:1px solid #ccc; 
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.3); 
+    padding:20px; 
+    z-index:1000; 
+    text-align:left;
+">
+    <h2>Come funziona</h2>
+    <p>
+        Questa applicazione si propone di analizzare in tempo reale i dati statistici
+        di una partita di calcio e di inviare segnali di alert quando, secondo le informazioni
+        disponibili, potrebbe verificarsi un goal. I segnali forniti non costituiscono in alcun
+        modo un incentivo o una promozione al gioco d’azzardo: l’obiettivo principale è lo studio,
+        l’approfondimento e la comprensione delle
+        dinamiche delle partite attraverso i dati statistici.<br><br>
+
+        This application is designed to analyze real-time statistical data of a
+        football match and to send alert signals when, based on the available
+        information, a goal might occur. The alerts are not intended as an
+        incentive or promotion for gambling; the main purpose
+        is the study, analysis, and understanding of match dynamics through statistical data.<br><br>
+        
+        Le statistiche saranno visualizzabili dal 50 minuto <br><br>
+        <b>xG Stats (Expected Goals):</b> misura le probabilità di segnare in base alle statistiche.<br><br>
+        <b>xG Quote (Expected Goals):</b> stima il gol atteso basandosi sul valore delle quote attuale rispetto a quelle generalmente attese.<br><br>
+        <b>Alert 🚨:</b> appare quando i modelli indicano alta probabilità di gol imminente.<br><br>
+        <b>Telegram:</b> viene inviato un avviso su telegram quando i modelli indicano alta probabilità di gol imminente.<br><br>
+        Aggiornamento automatico ogni 120 secondi.
+    </p>
+    <div style="text-align:right; margin-top:10px;">
+        <button onclick="document.getElementById('info-box').style.display='none'"
+                style="padding:5px 10px; border:none; background:#007bff; color:#fff; border-radius:4px; cursor:pointer;">
+            Chiudi
+        </button>
+    </div>
+</div>
+
+     <div class="matches-grid">
+    
+        <div class="match-card">
+            <div class="league">UEFA Champions League Women (World)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/1910.png" class="team-logo" alt="Logo Atletico Madrid W">Atletico Madrid W</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        2
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/16483.png" class="team-logo" alt="Logo Häcken">Häcken</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">93ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div class='stats'><strong>📊 Statistics:</strong><br>
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🎯 Shots on Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Shots off Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Total Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Blocked Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Shots insidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Shots outsidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🚩 Fouls</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🏁 Corner Kicks</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🚫 Offsides</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Ball Possession</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>2</span>
+                    <span style='width: 80%; text-align: center;'>🟨 Yellow Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>3</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>0</span>
+                    <span style='width: 80%; text-align: center;'>🟥 Red Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>0</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Goalkeeper Saves</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Total passes</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Passes accurate</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Passes %</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                </div>
+                <div style="margin-top:10px; font-size: 0.85em; text-align:center;">
+                    🔢 <strong>Expected Goals:</strong><br>
+                    Atletico Madrid W: <strong>0.0</strong>  Häcken: <strong>0.0</strong>
+                </div>
+                
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Second League (Egypt)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/1034.png" class="team-logo" alt="Logo El Entag EL Harby">El Entag EL Harby</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/15731.png" class="team-logo" alt="Logo Abu Qair Semad">Abu Qair Semad</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        2
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">90ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Premier League (Kuwait)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/3541.png" class="team-logo" alt="Logo Al Shabab">Al Shabab</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/3537.png" class="team-logo" alt="Logo Al Qadsia">Al Qadsia</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">84ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">UEFA Champions League Women (World)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/17575.png" class="team-logo" alt="Logo Austria Wien W">Austria Wien W</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/1676.png" class="team-logo" alt="Logo Paris FC W">Paris FC W</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        2
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">81ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Cup (Russia)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/558.png" class="team-logo" alt="Logo Spartak Moscow">Spartak Moscow</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/779.png" class="team-logo" alt="Logo FC Rostov">FC Rostov</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">74ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">UEFA Champions League Women (World)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/4898.png" class="team-logo" alt="Logo Manchester United W">Manchester United W</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        3
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/18380.png" class="team-logo" alt="Logo Brann W">Brann W</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">68ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            <div class="under-over"><strong></strong>
+                <div class="under-over-odds">
+                  <div class="handicap-row">
+                     <div class="handicap-label">
+                      <span style="margin-right: 10px;"><strong>2.50</strong></span>
+                      <span style="margin-right: 10px; font-weight: normal">  Under 3.5 Over  </span>
+                      <span><strong>1.50</strong></span>
+                    </div>                                      
+                  </div>
+                </div>
+                </div><hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            <div class='stats'><strong>📊 Statistics:</strong><br>
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🎯 Shots on Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Shots off Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Total Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Blocked Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Shots insidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Shots outsidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🚩 Fouls</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🏁 Corner Kicks</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🚫 Offsides</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Ball Possession</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>0</span>
+                    <span style='width: 80%; text-align: center;'>🟨 Yellow Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>1</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>0</span>
+                    <span style='width: 80%; text-align: center;'>🟥 Red Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>0</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Goalkeeper Saves</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Total passes</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Passes accurate</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Passes %</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                </div>
+                <div style="margin-top:10px; font-size: 0.85em; text-align:center;">
+                    🔢 <strong>Expected Goals:</strong><br>
+                    Manchester United W: <strong>0.0</strong>  Brann W: <strong>0.0</strong>
+                </div>
+                
+        </div>
+        
+        <div class="match-card">
+            <div class="league">UEFA Champions League Women (World)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/1790.png" class="team-logo" alt="Logo OH Leuven W">OH Leuven W</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/22339.png" class="team-logo" alt="Logo Vorskla Poltava W">Vorskla Poltava W</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">67ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Primera División (Peru)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/2542.png" class="team-logo" alt="Logo Ayacucho FC">Ayacucho FC</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/10013.png" class="team-logo" alt="Logo Cusco">Cusco</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">66ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> 21.00</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> 4.75</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> 1.22</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            <div class="under-over"><strong></strong>
+                <div class="under-over-odds">
+                  <div class="handicap-row">
+                     <div class="handicap-label">
+                      <span style="margin-right: 10px;"><strong>2.10</strong></span>
+                      <span style="margin-right: 10px; font-weight: normal">  Under 1.5 Over  </span>
+                      <span><strong>1.67</strong></span>
+                    </div>                                      
+                  </div>
+                </div>
+                
+                <div class="under-over-odds">
+                  <div class="handicap-row">
+                     <div class="handicap-label">
+                      <span style="margin-right: 10px;"><strong>1.22</strong></span>
+                      <span style="margin-right: 10px; font-weight: normal">  Under 2.5 Over  </span>
+                      <span><strong>4.00</strong></span>
+                    </div>                                      
+                  </div>
+                </div>
+                
+                <div class="under-over-odds">
+                  <div class="handicap-row">
+                     <div class="handicap-label">
+                      <span style="margin-right: 10px;"><strong>1.04</strong></span>
+                      <span style="margin-right: 10px; font-weight: normal">  Under 3.5 Over  </span>
+                      <span><strong>13.00</strong></span>
+                    </div>                                      
+                  </div>
+                </div>
+                </div><hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            <div class='stats'><strong>📊 Statistics:</strong><br>
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>2</span>
+                    <span style='width: 80%; text-align: center;'>🎯 Shots on Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>3</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>3</span>
+                    <span style='width: 80%; text-align: center;'> Shots off Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>6</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>6</span>
+                    <span style='width: 80%; text-align: center;'> Total Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>9</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>1</span>
+                    <span style='width: 80%; text-align: center;'> Blocked Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>0</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>3</span>
+                    <span style='width: 80%; text-align: center;'> Shots insidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>8</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>3</span>
+                    <span style='width: 80%; text-align: center;'> Shots outsidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>1</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>8</span>
+                    <span style='width: 80%; text-align: center;'>🚩 Fouls</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>5</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>1</span>
+                    <span style='width: 80%; text-align: center;'>🏁 Corner Kicks</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>1</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🚫 Offsides</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>33%</span>
+                    <span style='width: 80%; text-align: center;'> Ball Possession</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>67%</span>
+                </div>
+                
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar1" style="width:33%;"></div>
+                                <div class="bar2" style="width:67%;"></div>
+                            </div>
+                        </div>
+                        
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>1</span>
+                    <span style='width: 80%; text-align: center;'>🟨 Yellow Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>1</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🟥 Red Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>2</span>
+                    <span style='width: 80%; text-align: center;'> Goalkeeper Saves</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>2</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>219</span>
+                    <span style='width: 80%; text-align: center;'> Total passes</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>462</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>179</span>
+                    <span style='width: 80%; text-align: center;'> Passes accurate</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>424</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>82%</span>
+                    <span style='width: 80%; text-align: center;'> Passes %</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>92%</span>
+                </div>
+                
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar1" style="width:47%;"></div>
+                                <div class="bar2" style="width:53%;"></div>
+                            </div>
+                        </div>
+                        </div>
+                <div style="margin-top:10px; font-size: 0.85em; text-align:center;">
+                    🔢 <strong>Expected Goals:</strong><br>
+                    Ayacucho FC: <strong>1.22</strong>  Cusco: <strong>2.35</strong>
+                </div>
+                
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Reserve League (Argentina)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/18697.png" class="team-logo" alt="Logo San Lorenzo Res.">San Lorenzo Res.</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        2
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/18687.png" class="team-logo" alt="Logo Godoy Cruz Res.">Godoy Cruz Res.</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">65ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Reserve League (Argentina)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/22938.png" class="team-logo" alt="Logo Independiente Riva. Res.">Independiente Riva. Res.</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        2
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/18688.png" class="team-logo" alt="Logo Huracán Res.">Huracán Res.</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">64ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Reserve League (Argentina)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/18680.png" class="team-logo" alt="Logo Barracas Central Res.">Barracas Central Res.</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/20817.png" class="team-logo" alt="Logo Belgrano Córdoba Res.">Belgrano Córdoba Res.</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">64ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Pro League (Saudi-Arabia)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/10513.png" class="team-logo" alt="Logo NEOM">NEOM</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/2977.png" class="team-logo" alt="Logo Al Akhdoud">Al Akhdoud</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">64ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> 1.11</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> 7.00</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> 34.00</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            <div class="under-over"><strong></strong>
+                <div class="under-over-odds">
+                  <div class="handicap-row">
+                     <div class="handicap-label">
+                      <span style="margin-right: 10px;"><strong>2.25</strong></span>
+                      <span style="margin-right: 10px; font-weight: normal">  Under 1.5 Over  </span>
+                      <span><strong>1.57</strong></span>
+                    </div>                                      
+                  </div>
+                </div>
+                
+                <div class="under-over-odds">
+                  <div class="handicap-row">
+                     <div class="handicap-label">
+                      <span style="margin-right: 10px;"><strong>1.28</strong></span>
+                      <span style="margin-right: 10px; font-weight: normal">  Under 2.5 Over  </span>
+                      <span><strong>3.50</strong></span>
+                    </div>                                      
+                  </div>
+                </div>
+                
+                <div class="under-over-odds">
+                  <div class="handicap-row">
+                     <div class="handicap-label">
+                      <span style="margin-right: 10px;"><strong>1.04</strong></span>
+                      <span style="margin-right: 10px; font-weight: normal">  Under 3.5 Over  </span>
+                      <span><strong>9.00</strong></span>
+                    </div>                                      
+                  </div>
+                </div>
+                </div><hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            <div class='stats'><strong>📊 Statistics:</strong><br>
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>5</span>
+                    <span style='width: 80%; text-align: center;'>🎯 Shots on Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>0</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>2</span>
+                    <span style='width: 80%; text-align: center;'> Shots off Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>3</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>9</span>
+                    <span style='width: 80%; text-align: center;'> Total Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>3</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>2</span>
+                    <span style='width: 80%; text-align: center;'> Blocked Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>0</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>4</span>
+                    <span style='width: 80%; text-align: center;'> Shots insidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>1</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>5</span>
+                    <span style='width: 80%; text-align: center;'> Shots outsidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>2</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>11</span>
+                    <span style='width: 80%; text-align: center;'>🚩 Fouls</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>8</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>5</span>
+                    <span style='width: 80%; text-align: center;'>🏁 Corner Kicks</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>1</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>1</span>
+                    <span style='width: 80%; text-align: center;'>🚫 Offsides</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>1</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>67%</span>
+                    <span style='width: 80%; text-align: center;'> Ball Possession</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>33%</span>
+                </div>
+                
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar1" style="width:67%;"></div>
+                                <div class="bar2" style="width:33%;"></div>
+                            </div>
+                        </div>
+                        
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>1</span>
+                    <span style='width: 80%; text-align: center;'>🟨 Yellow Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>2</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🟥 Red Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>0</span>
+                    <span style='width: 80%; text-align: center;'> Goalkeeper Saves</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>4</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>342</span>
+                    <span style='width: 80%; text-align: center;'> Total passes</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>167</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>310</span>
+                    <span style='width: 80%; text-align: center;'> Passes accurate</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>125</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>91%</span>
+                    <span style='width: 80%; text-align: center;'> Passes %</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>75%</span>
+                </div>
+                
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar1" style="width:55%;"></div>
+                                <div class="bar2" style="width:45%;"></div>
+                            </div>
+                        </div>
+                        </div>
+                <div style="margin-top:10px; font-size: 0.85em; text-align:center;">
+                    🔢 <strong>Expected Goals:</strong><br>
+                    NEOM: <strong>1.91</strong>  Al Akhdoud: <strong>0.47</strong>
+                </div>
+                
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Premier League Cup (England)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/24849.png" class="team-logo" alt="Logo Stockport County U21">Stockport County U21</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/20085.png" class="team-logo" alt="Logo Queens Park Rangers U21">Queens Park Rangers U21</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        2
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">64ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">UEFA Champions League Women (World)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/15224.png" class="team-logo" alt="Logo Real Madrid W">Real Madrid W</div>
+                <div>
+                    <strong style="color:green; background:yellow;">
+                        3 ⚽
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/14014.png" class="team-logo" alt="Logo Eintracht Frankfurt W">Eintracht Frankfurt W</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">64ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div class='stats'><strong>📊 Statistics:</strong><br>
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🎯 Shots on Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Shots off Goal</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Total Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Blocked Shots</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Shots insidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Shots outsidebox</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🚩 Fouls</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🏁 Corner Kicks</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'>🚫 Offsides</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Ball Possession</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>0</span>
+                    <span style='width: 80%; text-align: center;'>🟨 Yellow Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>0</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>0</span>
+                    <span style='width: 80%; text-align: center;'>🟥 Red Cards</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>0</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Goalkeeper Saves</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Total passes</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Passes accurate</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                
+                <div style='display: flex; justify-content: space-between; align-items: center; margin: 2px 0;'>
+                    <span style='width: 10%; text-align: right; font-weight: bold;'>None</span>
+                    <span style='width: 80%; text-align: center;'> Passes %</span>
+                    <span style='width: 10%; text-align: left; font-weight: bold;'>None</span>
+                </div>
+                </div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Division 1 (Saudi-Arabia)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/2947.png" class="team-logo" alt="Logo Jeddah Club">Jeddah Club</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/2937.png" class="team-logo" alt="Logo Al Wehda Club">Al Wehda Club</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">62ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Liga Alef (Israel)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/6336.png" class="team-logo" alt="Logo Tzeirei Kafr Kanna">Tzeirei Kafr Kanna</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/4502.png" class="team-logo" alt="Logo Ironi Nesher">Ironi Nesher</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">61ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Torneo Promocional Amateur (Argentina)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/23098.png" class="team-logo" alt="Logo Deportivo Metalurgico">Deportivo Metalurgico</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/23095.png" class="team-logo" alt="Logo Barrancas UMET">Barrancas UMET</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">56ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Reserve League (Argentina)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/20818.png" class="team-logo" alt="Logo Instituto Res.">Instituto Res.</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/18690.png" class="team-logo" alt="Logo Lanús Res.">Lanús Res.</div>
+                <div>
+                    <strong style="color:green; background:yellow;">
+                        1 ⚽
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">54ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Tercera División RFEF - Group 16 (Spain)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/8154.png" class="team-logo" alt="Logo Comillas">Comillas</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/9861.png" class="team-logo" alt="Logo Anguiano">Anguiano</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">45ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">UEFA Champions League (World)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/169.png" class="team-logo" alt="Logo Eintracht Frankfurt">Eintracht Frankfurt</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/645.png" class="team-logo" alt="Logo Galatasaray">Galatasaray</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        1
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">23ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">UEFA Champions League (World)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/50.png" class="team-logo" alt="Logo Manchester City">Manchester City</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/492.png" class="team-logo" alt="Logo Napoli">Napoli</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">23ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Primera División (Bolivia)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/3700.png" class="team-logo" alt="Logo Always Ready">Always Ready</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/17762.png" class="team-logo" alt="Logo Universitario de Vinto">Universitario de Vinto</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">23ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">UEFA Champions League (World)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/34.png" class="team-logo" alt="Logo Newcastle">Newcastle</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/529.png" class="team-logo" alt="Logo Barcelona">Barcelona</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">22ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">Liga de Ascenso (Costa-Rica)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/2058.png" class="team-logo" alt="Logo CS Uruguay">CS Uruguay</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/2052.png" class="team-logo" alt="Logo Cariari Pococi">Cariari Pococi</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">21ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        <div class="match-card">
+            <div class="league">UEFA Champions League (World)</div>
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/228.png" class="team-logo" alt="Logo Sporting CP">Sporting CP</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <div><img src="https://media.api-sports.io/football/teams/664.png" class="team-logo" alt="Logo Kairat Almaty">Kairat Almaty</div>
+                <div>
+                    <strong style="color:black; background:transparent;">
+                        0
+                    </strong>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" class="elapsed">21ʼ</div>
+
+            <div style="text-align: center;" class="odds">
+                <strong style="display: block; margin-bottom: 10px;">Quote Bet365:</strong>
+                    <div style="display: flex; justify-content: center; gap: 30px;">
+                      <div style="font-size: 1.10em">1:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">X:<strong> -</strong></div>
+                      <div style="font-size: 1.10em">2:<strong> -</strong></div>
+                    </div>
+             </div>
+             <hr style="border: none; border-top: 1px solid #333; width: 70%; margin: 20px auto;">
+
+            
+
+            <div style="display: flex; justify-content: center;" class="no-stats">Statistics not available</div>
+        </div>
+        
+        </div>  <!-- chiusura .matches-grid -->
+
+        </body>
+        </html>
+        
