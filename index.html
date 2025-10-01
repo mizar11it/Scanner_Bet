@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="60">
-  <title>Live Matches</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="60">
+    <title>Live Matches</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-78PQYZ1G33"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-78PQYZ1G33');
+    </script>
 </head>
 <body>
-  <h1>📺 Live Matches - 01/10/2025 18:00</h1>
-
-  <div class="matches-grid">
-    <div class="match-card">
-      <div class="league">Serie A (Italy)</div>
-
-      <div class="team-row">
-        <div><img src="home_logo.png" class="team-logo"> Milan</div>
-        <div><strong>2 ⚽</strong></div>
-      </div>
-
-      <div class="team-row">
-        <div><img src="away_logo.png" class="team-logo"> Inter</div>
-        <div><strong>1</strong></div>
-      </div>
-
-      <div class="elapsed">65’</div>
-
-      <div class="odds">
-        <strong>Quote Bet365:</strong>
-        <div style="display: flex; justify-content: center; gap: 30px; margin-top: 5px;">
-          <div>1: <strong>2.10</strong></div>
-          <div>X: <strong>3.25</strong></div>
-          <div>2: <strong>3.00</strong></div>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="stats">
-        📊 Statistics:<br>
-        Possession: 55% - 45%<br>
-        Shots on Goal: 7 - 5
-      </div>
+    <div class="header">
+        <h1>📺 Live Matches - 01/10/2025 22:02:59</h1>
+        <!-- link Telegram, info ecc. rimangono come nel tuo codice -->
     </div>
-  </div>
+
+    <!-- Box info nascosto -->
+    <div id="info-box">
+        <!-- contenuto info come nel tuo codice -->
+    </div>
+
+    <div class="matches-grid">
+        {{MATCH_CARDS}}
+    </div>
 </body>
 </html>
