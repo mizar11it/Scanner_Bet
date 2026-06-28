@@ -195,8 +195,8 @@ function loadShapes(){
     const url = isLocal ? `/shape?linea=${currentLine}` : `shape_${currentLine}.json`;
     
     fetch(url)
-    .then(r=>r.json())
-    .then(data=>{
+    .then(r => r.json())
+    .then(data => {
         clearShapes();
         const all0 = data.shapes?.["0"] || [];
         const all1 = data.shapes?.["1"] || [];
@@ -228,7 +228,8 @@ function loadShapes(){
                 shapeLayersDir1.push(polySegment);
             }
         });
-    });
+    })
+    .catch(err => console.error("Errore shapes:", err));
 }
 
 // ================= FERMATE + FILTRO ORARI DINAMICO =================
@@ -238,10 +239,10 @@ function loadStops(){
     const url = isLocal ? `/stops?linea=${currentLine}` : `stops_${currentLine}.json`;
     
     fetch(url)
-    .then(r=>r.json())
-    .then(data=>{
+    .then(r => r.json())
+    .then(data => {
         clearStops();
-        data.forEach(stop=>{
+        data.forEach(stop => {
             const m = L.circleMarker([stop.lat, stop.lon],{
                 radius: 5,
                 color: "#333",
@@ -281,7 +282,8 @@ function loadStops(){
             m.bindPopup(`<b>🚏 ${stop.name}</b><br><small>Clicca per gli orari</small>`);
             stopMarkers.push(m);
         });
-    });
+    })
+    .catch(err => console.error("Errore stops:", err));
 }
 
 function popupHtml(bus) {
@@ -293,12 +295,12 @@ function popupHtml(bus) {
 }
 
 // =====================
-// UPDATE BUS + HOVER TOTALE (LINEE, BUS, FERMATE)
+// UPDATE BUS + HOVER TOTALE
 // =====================
 function updateBus() {
     if(!currentLine) return;
 
-    const url = isLocal ? `/bus?linea=${currentLine}` : `https://raw.githubusercontent.com/mizar11it/Scanner_Bet/main/live_bus.json`;
+    const url = isLocal ? `/bus?linea=${currentLine}` : `live_bus.json`;
 
     fetch(url)
         .then(r => r.json())
@@ -411,7 +413,8 @@ function initDropdown() {
                 selector.value = "6";
                 changeLine("6");
             }
-        });
+        })
+        .catch(err => console.error("Errore rotte:", err));
 
     document.getElementById("route-selector").addEventListener("change", (e) => {
         changeLine(e.target.value);
