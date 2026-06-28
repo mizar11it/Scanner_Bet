@@ -1,0 +1,683 @@
+[
+  {
+    "stop_id": "140604",
+    "name": "BOCCACCIO COLOMBO",
+    "lat": 43.756033,
+    "lon": 11.181395,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:01",
+      "16:56",
+      "18:01"
+    ]
+  },
+  {
+    "stop_id": "140608",
+    "name": "DONIZETTI CILEA",
+    "lat": 43.759895,
+    "lon": 11.180008,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "11:00",
+      "14:05",
+      "17:50",
+      "18:55"
+    ]
+  },
+  {
+    "stop_id": "140609",
+    "name": "BACHELET NEWTON",
+    "lat": 43.760133,
+    "lon": 11.167065,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "10:57",
+      "14:02",
+      "17:47",
+      "18:52"
+    ]
+  },
+  {
+    "stop_id": "140651",
+    "name": "BOCCACCIO CARDUCCI",
+    "lat": 43.756113,
+    "lon": 11.182128,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:46",
+      "16:01",
+      "20:47"
+    ]
+  },
+  {
+    "stop_id": "140652",
+    "name": "TORRICELLE",
+    "lat": 43.757712,
+    "lon": 11.162998,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:49",
+      "13:04",
+      "15:04",
+      "19:54"
+    ]
+  },
+  {
+    "stop_id": "140653",
+    "name": "FRANCOFORTE T1 RESISTENZA",
+    "lat": 43.75774,
+    "lon": 11.18257,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:47",
+      "11:02",
+      "14:07",
+      "16:02",
+      "17:52",
+      "18:57",
+      "20:48"
+    ]
+  },
+  {
+    "stop_id": "140656",
+    "name": "DONIZETTI VIVALDI",
+    "lat": 43.760302,
+    "lon": 11.179518,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:45",
+      "13:00",
+      "15:00",
+      "19:50"
+    ]
+  },
+  {
+    "stop_id": "140658",
+    "name": "DONIZETTI ACCIAIOLO",
+    "lat": 43.761223,
+    "lon": 11.17695,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "10:59",
+      "14:04",
+      "17:49",
+      "18:54"
+    ]
+  },
+  {
+    "stop_id": "140755",
+    "name": "BACHELET DI CASELLINA",
+    "lat": 43.760378,
+    "lon": 11.167193,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:48",
+      "13:03",
+      "15:03",
+      "19:53"
+    ]
+  },
+  {
+    "stop_id": "140756",
+    "name": "DONIZETTI SCARLATTI",
+    "lat": 43.761273,
+    "lon": 11.177145,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:46",
+      "13:01",
+      "15:01",
+      "19:51"
+    ]
+  },
+  {
+    "stop_id": "140982",
+    "name": "PONTE DEL RISTORO",
+    "lat": 43.757807,
+    "lon": 11.163185,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "10:56",
+      "14:01",
+      "17:46",
+      "18:51"
+    ]
+  },
+  {
+    "stop_id": "141010",
+    "name": "SETTANTOTTESIMO REGGIMENTO",
+    "lat": 43.759513,
+    "lon": 11.181418,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:45",
+      "08:48",
+      "10:00",
+      "11:03",
+      "13:00",
+      "14:08",
+      "15:00",
+      "16:03",
+      "16:55",
+      "17:53",
+      "18:00",
+      "18:58",
+      "19:50",
+      "20:49"
+    ]
+  },
+  {
+    "stop_id": "141016",
+    "name": "PONCHIELLI DONIZETTI",
+    "lat": 43.76169,
+    "lon": 11.17463,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "10:59",
+      "14:04",
+      "17:49",
+      "18:54"
+    ]
+  },
+  {
+    "stop_id": "141074",
+    "name": "IL MELARANCIO",
+    "lat": 43.733485,
+    "lon": 11.157185,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:08",
+      "17:03",
+      "18:08"
+    ]
+  },
+  {
+    "stop_id": "141075",
+    "name": "MOSCIANO",
+    "lat": 43.7335,
+    "lon": 11.157382,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:36",
+      "15:51",
+      "20:37"
+    ]
+  },
+  {
+    "stop_id": "141076",
+    "name": "CADUTI DI MOSCIANO",
+    "lat": 43.733818,
+    "lon": 11.152133,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:35",
+      "15:50",
+      "20:36"
+    ]
+  },
+  {
+    "stop_id": "141089",
+    "name": "ROMA PONTE A VINGONE",
+    "lat": 43.746308,
+    "lon": 11.180028,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:03",
+      "16:58",
+      "18:03"
+    ]
+  },
+  {
+    "stop_id": "141091",
+    "name": "ROMA REDI",
+    "lat": 43.747777,
+    "lon": 11.18227,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:42",
+      "15:57",
+      "20:43"
+    ]
+  },
+  {
+    "stop_id": "141093",
+    "name": "ROMA CELLINI",
+    "lat": 43.749778,
+    "lon": 11.184318,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:02",
+      "16:57",
+      "18:02"
+    ]
+  },
+  {
+    "stop_id": "141138",
+    "name": "PRETALE",
+    "lat": 43.734763,
+    "lon": 11.151187,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "10:46",
+      "13:51",
+      "17:36",
+      "18:41"
+    ]
+  },
+  {
+    "stop_id": "141140",
+    "name": "GLI ALBERI",
+    "lat": 43.735947,
+    "lon": 11.161725,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:07",
+      "17:02",
+      "18:07"
+    ]
+  },
+  {
+    "stop_id": "141144",
+    "name": "LA NAVICELLA",
+    "lat": 43.737922,
+    "lon": 11.150815,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "10:47",
+      "13:52",
+      "17:37",
+      "18:42"
+    ]
+  },
+  {
+    "stop_id": "141146",
+    "name": "FOSSO DI GHINDOSSOLI",
+    "lat": 43.739668,
+    "lon": 11.173688,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:05",
+      "17:00",
+      "18:05"
+    ]
+  },
+  {
+    "stop_id": "141167",
+    "name": "VIA DI CITILLE",
+    "lat": 43.752002,
+    "lon": 11.15258,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "10:53",
+      "13:58",
+      "17:43",
+      "18:48"
+    ]
+  },
+  {
+    "stop_id": "141170",
+    "name": "SAN BARTOLO BENINI",
+    "lat": 43.752863,
+    "lon": 11.185647,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:01",
+      "16:56",
+      "18:01"
+    ]
+  },
+  {
+    "stop_id": "141171",
+    "name": "TRIOZZI BASSO",
+    "lat": 43.752898,
+    "lon": 11.154455,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:52",
+      "13:07",
+      "15:07",
+      "19:57"
+    ]
+  },
+  {
+    "stop_id": "141200",
+    "name": "LE FONTINE",
+    "lat": 43.732382,
+    "lon": 11.150282,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:34",
+      "10:45",
+      "13:50",
+      "15:49",
+      "17:35",
+      "18:40",
+      "20:35"
+    ]
+  },
+  {
+    "stop_id": "141204",
+    "name": "PODERE CORTENUOVA",
+    "lat": 43.734767,
+    "lon": 11.151043,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "08:00",
+      "13:15",
+      "15:15",
+      "20:05"
+    ]
+  },
+  {
+    "stop_id": "141205",
+    "name": "LO SPICCHIO",
+    "lat": 43.735453,
+    "lon": 11.165168,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:07",
+      "17:02",
+      "18:07"
+    ]
+  },
+  {
+    "stop_id": "141207",
+    "name": "BALLATOIO",
+    "lat": 43.737918,
+    "lon": 11.169362,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:06",
+      "17:01",
+      "18:06"
+    ]
+  },
+  {
+    "stop_id": "141208",
+    "name": "LA COSTA",
+    "lat": 43.738045,
+    "lon": 11.169518,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:38",
+      "15:53",
+      "20:39"
+    ]
+  },
+  {
+    "stop_id": "141218",
+    "name": "VILLA IL DILUVIO",
+    "lat": 43.742705,
+    "lon": 11.175932,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:40",
+      "15:55",
+      "20:41"
+    ]
+  },
+  {
+    "stop_id": "141219",
+    "name": "MACINUZZE",
+    "lat": 43.742725,
+    "lon": 11.175835,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:04",
+      "16:59",
+      "18:04"
+    ]
+  },
+  {
+    "stop_id": "141234",
+    "name": "VIA SAN MARTINO",
+    "lat": 43.751897,
+    "lon": 11.152423,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:52",
+      "13:07",
+      "15:07",
+      "19:57"
+    ]
+  },
+  {
+    "stop_id": "141239",
+    "name": "VILLA ANTINORI",
+    "lat": 43.75361,
+    "lon": 11.155853,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "10:54",
+      "13:59",
+      "17:44",
+      "18:49"
+    ]
+  },
+  {
+    "stop_id": "141240",
+    "name": "SAN BARTOLO FOSCOLO",
+    "lat": 43.754078,
+    "lon": 11.18355,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:45",
+      "16:00",
+      "20:46"
+    ]
+  },
+  {
+    "stop_id": "141285",
+    "name": "LE DANICI",
+    "lat": 43.733828,
+    "lon": 11.152312,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:09",
+      "17:04",
+      "18:09"
+    ]
+  },
+  {
+    "stop_id": "141287",
+    "name": "VILLA CARBONI",
+    "lat": 43.73541,
+    "lon": 11.165335,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:37",
+      "15:52",
+      "20:38"
+    ]
+  },
+  {
+    "stop_id": "141288",
+    "name": "RAGNAIA",
+    "lat": 43.735898,
+    "lon": 11.161897,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:37",
+      "15:52",
+      "20:38"
+    ]
+  },
+  {
+    "stop_id": "141290",
+    "name": "COLTINUOVA",
+    "lat": 43.738005,
+    "lon": 11.150718,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:59",
+      "13:14",
+      "15:14",
+      "20:04"
+    ]
+  },
+  {
+    "stop_id": "141292",
+    "name": "PERTICUZZO",
+    "lat": 43.73963,
+    "lon": 11.173795,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:39",
+      "15:54",
+      "20:40"
+    ]
+  },
+  {
+    "stop_id": "141304",
+    "name": "ROMA DELLE CORBINAIE",
+    "lat": 43.749972,
+    "lon": 11.184623,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:42",
+      "15:57",
+      "20:43"
+    ]
+  },
+  {
+    "stop_id": "141309",
+    "name": "ROMA BIBLIOTECA COMUNALE",
+    "lat": 43.751607,
+    "lon": 11.1869,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:02",
+      "16:57",
+      "18:02"
+    ]
+  },
+  {
+    "stop_id": "141310",
+    "name": "ROMA CIOPPI",
+    "lat": 43.751957,
+    "lon": 11.187393,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:43",
+      "15:58",
+      "20:44"
+    ]
+  },
+  {
+    "stop_id": "141312",
+    "name": "SAN BARTOLO MANZONI",
+    "lat": 43.753067,
+    "lon": 11.185397,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:44",
+      "15:59",
+      "20:45"
+    ]
+  },
+  {
+    "stop_id": "141317",
+    "name": "SAN BARTOLO GIOVANNI XXIII",
+    "lat": 43.754272,
+    "lon": 11.183153,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "10:01",
+      "16:56",
+      "18:01"
+    ]
+  }
+]

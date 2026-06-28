@@ -1,0 +1,62 @@
+[
+  {
+    "stop_id": "140365",
+    "name": "OLMI BALDANZESE",
+    "lat": 43.843222,
+    "lon": 11.161052,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:48"
+    ]
+  },
+  {
+    "stop_id": "140810",
+    "name": "ALLENDE TOMERELLO",
+    "lat": 43.835002,
+    "lon": 11.153188,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:34"
+    ]
+  },
+  {
+    "stop_id": "140906",
+    "name": "BALDANZESE DEI GELSI",
+    "lat": 43.841122,
+    "lon": 11.166638,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:49"
+    ]
+  },
+  {
+    "stop_id": "140911",
+    "name": "MANETTI & ROBERTS",
+    "lat": 43.844643,
+    "lon": 11.169688,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:51"
+    ]
+  },
+  {
+    "stop_id": "141130",
+    "name": "BALDANZESE DEGLI OLMI",
+    "lat": 43.843822,
+    "lon": 11.169095,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:50"
+    ]
+  }
+]

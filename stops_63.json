@@ -1,0 +1,252 @@
+[
+  {
+    "stop_id": "140608",
+    "name": "DONIZETTI CILEA",
+    "lat": 43.759895,
+    "lon": 11.180008,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "09:05",
+      "13:09",
+      "18:51"
+    ]
+  },
+  {
+    "stop_id": "140609",
+    "name": "BACHELET NEWTON",
+    "lat": 43.760133,
+    "lon": 11.167065,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "09:02",
+      "13:06",
+      "18:48"
+    ]
+  },
+  {
+    "stop_id": "140652",
+    "name": "TORRICELLE",
+    "lat": 43.757712,
+    "lon": 11.162998,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:44",
+      "09:24",
+      "11:53",
+      "14:25",
+      "19:14"
+    ]
+  },
+  {
+    "stop_id": "140653",
+    "name": "FRANCOFORTE T1 RESISTENZA",
+    "lat": 43.75774,
+    "lon": 11.18257,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "09:07",
+      "13:11",
+      "18:53"
+    ]
+  },
+  {
+    "stop_id": "140656",
+    "name": "DONIZETTI VIVALDI",
+    "lat": 43.760302,
+    "lon": 11.179518,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:40",
+      "09:20",
+      "11:49",
+      "14:21",
+      "19:10"
+    ]
+  },
+  {
+    "stop_id": "140658",
+    "name": "DONIZETTI ACCIAIOLO",
+    "lat": 43.761223,
+    "lon": 11.17695,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "09:04",
+      "13:08",
+      "18:50"
+    ]
+  },
+  {
+    "stop_id": "140755",
+    "name": "BACHELET DI CASELLINA",
+    "lat": 43.760378,
+    "lon": 11.167193,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:43",
+      "09:23",
+      "11:52",
+      "14:24",
+      "19:13"
+    ]
+  },
+  {
+    "stop_id": "140756",
+    "name": "DONIZETTI SCARLATTI",
+    "lat": 43.761273,
+    "lon": 11.177145,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:41",
+      "09:21",
+      "11:50",
+      "14:22",
+      "19:11"
+    ]
+  },
+  {
+    "stop_id": "140982",
+    "name": "PONTE DEL RISTORO",
+    "lat": 43.757807,
+    "lon": 11.163185,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "09:01",
+      "13:05",
+      "18:47"
+    ]
+  },
+  {
+    "stop_id": "141010",
+    "name": "SETTANTOTTESIMO REGGIMENTO",
+    "lat": 43.759513,
+    "lon": 11.181418,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:40",
+      "09:08",
+      "09:20",
+      "11:49",
+      "13:12",
+      "14:21",
+      "18:54",
+      "19:10"
+    ]
+  },
+  {
+    "stop_id": "141016",
+    "name": "PONCHIELLI DONIZETTI",
+    "lat": 43.76169,
+    "lon": 11.17463,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "09:04",
+      "13:08",
+      "18:50"
+    ]
+  },
+  {
+    "stop_id": "141167",
+    "name": "VIA DI CITILLE",
+    "lat": 43.752002,
+    "lon": 11.15258,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "08:59",
+      "13:02",
+      "18:45"
+    ]
+  },
+  {
+    "stop_id": "141171",
+    "name": "TRIOZZI BASSO",
+    "lat": 43.752898,
+    "lon": 11.154455,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:46",
+      "09:26",
+      "11:55",
+      "19:16"
+    ]
+  },
+  {
+    "stop_id": "141234",
+    "name": "VIA SAN MARTINO",
+    "lat": 43.751897,
+    "lon": 11.152423,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:47",
+      "09:27",
+      "11:56",
+      "19:17"
+    ]
+  },
+  {
+    "stop_id": "141238",
+    "name": "RINALDI",
+    "lat": 43.753412,
+    "lon": 11.154403,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "14:27"
+    ]
+  },
+  {
+    "stop_id": "141239",
+    "name": "VILLA ANTINORI",
+    "lat": 43.75361,
+    "lon": 11.155853,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "09:00",
+      "13:03",
+      "18:46"
+    ]
+  },
+  {
+    "stop_id": "141242",
+    "name": "MONTAGUGLIONE",
+    "lat": 43.754158,
+    "lon": 11.152815,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "14:28"
+    ]
+  }
+]

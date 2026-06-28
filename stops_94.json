@@ -1,0 +1,520 @@
+[
+  {
+    "stop_id": "140365",
+    "name": "OLMI BALDANZESE",
+    "lat": 43.843222,
+    "lon": 11.161052,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:54"
+    ]
+  },
+  {
+    "stop_id": "140457",
+    "name": "OLMI ALLENDE",
+    "lat": 43.844378,
+    "lon": 11.158928,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "16:28"
+    ]
+  },
+  {
+    "stop_id": "140458",
+    "name": "PRATIGNONE OLMI",
+    "lat": 43.844888,
+    "lon": 11.15906,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:46",
+      "16:28"
+    ]
+  },
+  {
+    "stop_id": "140460",
+    "name": "PRATIGNONE ALLENDE",
+    "lat": 43.84518,
+    "lon": 11.15911,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:52",
+      "16:31"
+    ]
+  },
+  {
+    "stop_id": "140605",
+    "name": "POCCIANTI MACCHIAIOLI",
+    "lat": 43.756247,
+    "lon": 11.197327,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:41"
+    ]
+  },
+  {
+    "stop_id": "140606",
+    "name": "TURRI FOSCOLO",
+    "lat": 43.757585,
+    "lon": 11.18573,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:32"
+    ]
+  },
+  {
+    "stop_id": "140608",
+    "name": "DONIZETTI CILEA",
+    "lat": 43.759895,
+    "lon": 11.180008,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:26"
+    ]
+  },
+  {
+    "stop_id": "140653",
+    "name": "FRANCOFORTE T1 RESISTENZA",
+    "lat": 43.75774,
+    "lon": 11.18257,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:31"
+    ]
+  },
+  {
+    "stop_id": "140656",
+    "name": "DONIZETTI VIVALDI",
+    "lat": 43.760302,
+    "lon": 11.179518,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:55"
+    ]
+  },
+  {
+    "stop_id": "140658",
+    "name": "DONIZETTI ACCIAIOLO",
+    "lat": 43.761223,
+    "lon": 11.17695,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:25"
+    ]
+  },
+  {
+    "stop_id": "140668",
+    "name": "PISANA CODIGNOLA",
+    "lat": 43.76513,
+    "lon": 11.167028,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:19"
+    ]
+  },
+  {
+    "stop_id": "140671",
+    "name": "PISANA DEL PISCETTO",
+    "lat": 43.765273,
+    "lon": 11.164705,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:18"
+    ]
+  },
+  {
+    "stop_id": "140673",
+    "name": "PISANA CHARTA '77",
+    "lat": 43.765343,
+    "lon": 11.159852,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:16"
+    ]
+  },
+  {
+    "stop_id": "140676",
+    "name": "PISANA DI PORTO",
+    "lat": 43.76653,
+    "lon": 11.152318,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:01"
+    ]
+  },
+  {
+    "stop_id": "140751",
+    "name": "DEI ROSSI",
+    "lat": 43.756145,
+    "lon": 11.187832,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:54"
+    ]
+  },
+  {
+    "stop_id": "140752",
+    "name": "LUPI DI TOSCANA",
+    "lat": 43.759305,
+    "lon": 11.181913,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:55"
+    ]
+  },
+  {
+    "stop_id": "140756",
+    "name": "DONIZETTI SCARLATTI",
+    "lat": 43.761273,
+    "lon": 11.177145,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:56"
+    ]
+  },
+  {
+    "stop_id": "140760",
+    "name": "PISANA BUON PASTORE",
+    "lat": 43.764165,
+    "lon": 11.176157,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:57"
+    ]
+  },
+  {
+    "stop_id": "140762",
+    "name": "BACCIO CIMAROSA",
+    "lat": 43.76518,
+    "lon": 11.171557,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:57"
+    ]
+  },
+  {
+    "stop_id": "140763",
+    "name": "PISANA BASSA",
+    "lat": 43.765253,
+    "lon": 11.168607,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:58"
+    ]
+  },
+  {
+    "stop_id": "140765",
+    "name": "PISANA DARWIN",
+    "lat": 43.76539,
+    "lon": 11.16399,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:59"
+    ]
+  },
+  {
+    "stop_id": "140827",
+    "name": "DI VITTORIO",
+    "lat": 43.763657,
+    "lon": 11.172585,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:22"
+    ]
+  },
+  {
+    "stop_id": "140830",
+    "name": "PISANA DA PALESTRINA",
+    "lat": 43.764887,
+    "lon": 11.171047,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:21"
+    ]
+  },
+  {
+    "stop_id": "140832",
+    "name": "PISANA SAN PAOLO",
+    "lat": 43.765453,
+    "lon": 11.160435,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:00"
+    ]
+  },
+  {
+    "stop_id": "140834",
+    "name": "PISANA PARLAMENTO EUROPEO",
+    "lat": 43.766032,
+    "lon": 11.154863,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:14"
+    ]
+  },
+  {
+    "stop_id": "140887",
+    "name": "BALDANZESE DEL PRATIGNONE",
+    "lat": 43.841138,
+    "lon": 11.1665,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "16:27"
+    ]
+  },
+  {
+    "stop_id": "140906",
+    "name": "BALDANZESE DEI GELSI",
+    "lat": 43.841122,
+    "lon": 11.166638,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:56"
+    ]
+  },
+  {
+    "stop_id": "140911",
+    "name": "MANETTI & ROBERTS",
+    "lat": 43.844643,
+    "lon": 11.169688,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:58",
+      "16:27"
+    ]
+  },
+  {
+    "stop_id": "140936",
+    "name": "PRATIGNONE FS",
+    "lat": 43.848648,
+    "lon": 11.162095,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:51",
+      "16:31"
+    ]
+  },
+  {
+    "stop_id": "140937",
+    "name": "CAPONNETTO PRATIGNONE FS",
+    "lat": 43.848692,
+    "lon": 11.162473,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:48",
+      "16:29"
+    ]
+  },
+  {
+    "stop_id": "140980",
+    "name": "POCCIANTI BALLERINI",
+    "lat": 43.756252,
+    "lon": 11.197032,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:52"
+    ]
+  },
+  {
+    "stop_id": "140987",
+    "name": "TURRI T1 RESISTENZA",
+    "lat": 43.758395,
+    "lon": 11.184127,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:55"
+    ]
+  },
+  {
+    "stop_id": "141018",
+    "name": "DONIZETTI PONCHIELLI",
+    "lat": 43.762322,
+    "lon": 11.174378,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:23"
+    ]
+  },
+  {
+    "stop_id": "141023",
+    "name": "PISANA OLMO",
+    "lat": 43.765863,
+    "lon": 11.156598,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:00"
+    ]
+  },
+  {
+    "stop_id": "141118",
+    "name": "ALEARDI PIAVE",
+    "lat": 43.754587,
+    "lon": 11.188303,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:35"
+    ]
+  },
+  {
+    "stop_id": "141130",
+    "name": "BALDANZESE DEGLI OLMI",
+    "lat": 43.843822,
+    "lon": 11.169095,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "07:57"
+    ]
+  },
+  {
+    "stop_id": "141172",
+    "name": "MATTEOTTI ALIGHIERI",
+    "lat": 43.753618,
+    "lon": 11.19048,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:37"
+    ]
+  },
+  {
+    "stop_id": "141173",
+    "name": "PIAZZA MATTEOTTI",
+    "lat": 43.75408,
+    "lon": 11.190333,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:53"
+    ]
+  },
+  {
+    "stop_id": "141243",
+    "name": "MARCONI DANTE",
+    "lat": 43.75433,
+    "lon": 11.192532,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "06:52"
+    ]
+  },
+  {
+    "stop_id": "141248",
+    "name": "PRATIGNONE ZONA INDUSTRIALE",
+    "lat": 43.846893,
+    "lon": 11.16069,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:51",
+      "16:31"
+    ]
+  },
+  {
+    "stop_id": "141249",
+    "name": "PRATIGNONE DELLE CALANDRE",
+    "lat": 43.84731,
+    "lon": 11.161202,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:47",
+      "16:28"
+    ]
+  },
+  {
+    "stop_id": "141318",
+    "name": "MARCONI IMPIANTI SPORTIVI",
+    "lat": 43.75442,
+    "lon": 11.193005,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "17:38"
+    ]
+  }
+]

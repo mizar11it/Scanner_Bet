@@ -1,0 +1,477 @@
+[
+  {
+    "stop_id": "136552",
+    "name": "DI SCANDICCI AMENDOLA",
+    "lat": 43.758543,
+    "lon": 11.201227,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:46",
+      "20:31"
+    ]
+  },
+  {
+    "stop_id": "136585",
+    "name": "OSPEDALE TORRE GALLI",
+    "lat": 43.758682,
+    "lon": 11.202542,
+    "directions": [
+      0,
+      1
+    ],
+    "orari": [
+      "07:58",
+      "12:32",
+      "13:45",
+      "19:02",
+      "20:30"
+    ]
+  },
+  {
+    "stop_id": "140604",
+    "name": "BOCCACCIO COLOMBO",
+    "lat": 43.756033,
+    "lon": 11.181395,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:51",
+      "12:25",
+      "18:55"
+    ]
+  },
+  {
+    "stop_id": "140605",
+    "name": "POCCIANTI MACCHIAIOLI",
+    "lat": 43.756247,
+    "lon": 11.197327,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:57",
+      "12:31",
+      "19:01"
+    ]
+  },
+  {
+    "stop_id": "140608",
+    "name": "DONIZETTI CILEA",
+    "lat": 43.759895,
+    "lon": 11.180008,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:49",
+      "12:23",
+      "18:53"
+    ]
+  },
+  {
+    "stop_id": "140651",
+    "name": "BOCCACCIO CARDUCCI",
+    "lat": 43.756113,
+    "lon": 11.182128,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:50",
+      "20:35"
+    ]
+  },
+  {
+    "stop_id": "140653",
+    "name": "FRANCOFORTE T1 RESISTENZA",
+    "lat": 43.75774,
+    "lon": 11.18257,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:51",
+      "20:36"
+    ]
+  },
+  {
+    "stop_id": "140656",
+    "name": "DONIZETTI VIVALDI",
+    "lat": 43.760302,
+    "lon": 11.179518,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:52",
+      "20:37"
+    ]
+  },
+  {
+    "stop_id": "140658",
+    "name": "DONIZETTI ACCIAIOLO",
+    "lat": 43.761223,
+    "lon": 11.17695,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:48",
+      "12:23",
+      "18:53"
+    ]
+  },
+  {
+    "stop_id": "140668",
+    "name": "PISANA CODIGNOLA",
+    "lat": 43.76513,
+    "lon": 11.167028,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:44",
+      "12:19",
+      "18:49"
+    ]
+  },
+  {
+    "stop_id": "140671",
+    "name": "PISANA DEL PISCETTO",
+    "lat": 43.765273,
+    "lon": 11.164705,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:43",
+      "12:19",
+      "18:49"
+    ]
+  },
+  {
+    "stop_id": "140673",
+    "name": "PISANA CHARTA '77",
+    "lat": 43.765343,
+    "lon": 11.159852,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:42",
+      "12:18",
+      "18:48"
+    ]
+  },
+  {
+    "stop_id": "140676",
+    "name": "PISANA DI PORTO",
+    "lat": 43.76653,
+    "lon": 11.152318,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:59",
+      "20:44"
+    ]
+  },
+  {
+    "stop_id": "140752",
+    "name": "LUPI DI TOSCANA",
+    "lat": 43.759305,
+    "lon": 11.181913,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:52",
+      "20:37"
+    ]
+  },
+  {
+    "stop_id": "140756",
+    "name": "DONIZETTI SCARLATTI",
+    "lat": 43.761273,
+    "lon": 11.177145,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:53",
+      "20:38"
+    ]
+  },
+  {
+    "stop_id": "140760",
+    "name": "PISANA BUON PASTORE",
+    "lat": 43.764165,
+    "lon": 11.176157,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:55",
+      "20:40"
+    ]
+  },
+  {
+    "stop_id": "140762",
+    "name": "BACCIO CIMAROSA",
+    "lat": 43.76518,
+    "lon": 11.171557,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:55",
+      "20:40"
+    ]
+  },
+  {
+    "stop_id": "140763",
+    "name": "PISANA BASSA",
+    "lat": 43.765253,
+    "lon": 11.168607,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:56",
+      "20:41"
+    ]
+  },
+  {
+    "stop_id": "140765",
+    "name": "PISANA DARWIN",
+    "lat": 43.76539,
+    "lon": 11.16399,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:57",
+      "20:42"
+    ]
+  },
+  {
+    "stop_id": "140827",
+    "name": "DI VITTORIO",
+    "lat": 43.763657,
+    "lon": 11.172585,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:46",
+      "12:21",
+      "18:51"
+    ]
+  },
+  {
+    "stop_id": "140830",
+    "name": "PISANA DA PALESTRINA",
+    "lat": 43.764887,
+    "lon": 11.171047,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:45",
+      "12:20",
+      "18:50"
+    ]
+  },
+  {
+    "stop_id": "140832",
+    "name": "PISANA SAN PAOLO",
+    "lat": 43.765453,
+    "lon": 11.160435,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:58",
+      "20:43"
+    ]
+  },
+  {
+    "stop_id": "140834",
+    "name": "PISANA PARLAMENTO EUROPEO",
+    "lat": 43.766032,
+    "lon": 11.154863,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:40",
+      "12:16",
+      "18:46"
+    ]
+  },
+  {
+    "stop_id": "140980",
+    "name": "POCCIANTI BALLERINI",
+    "lat": 43.756252,
+    "lon": 11.197032,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:47",
+      "20:32"
+    ]
+  },
+  {
+    "stop_id": "141018",
+    "name": "DONIZETTI PONCHIELLI",
+    "lat": 43.762322,
+    "lon": 11.174378,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:47",
+      "12:22",
+      "18:52"
+    ]
+  },
+  {
+    "stop_id": "141023",
+    "name": "PISANA OLMO",
+    "lat": 43.765863,
+    "lon": 11.156598,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:58",
+      "20:43"
+    ]
+  },
+  {
+    "stop_id": "141115",
+    "name": "MATTEOTTI PAOLI",
+    "lat": 43.753542,
+    "lon": 11.190217,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:48",
+      "20:33"
+    ]
+  },
+  {
+    "stop_id": "141169",
+    "name": "CIOPPI",
+    "lat": 43.752242,
+    "lon": 11.187117,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:53",
+      "12:28",
+      "18:58"
+    ]
+  },
+  {
+    "stop_id": "141170",
+    "name": "SAN BARTOLO BENINI",
+    "lat": 43.752863,
+    "lon": 11.185647,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:53",
+      "12:27",
+      "18:57"
+    ]
+  },
+  {
+    "stop_id": "141172",
+    "name": "MATTEOTTI ALIGHIERI",
+    "lat": 43.753618,
+    "lon": 11.19048,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:55",
+      "12:29",
+      "18:59"
+    ]
+  },
+  {
+    "stop_id": "141240",
+    "name": "SAN BARTOLO FOSCOLO",
+    "lat": 43.754078,
+    "lon": 11.18355,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:49",
+      "20:34"
+    ]
+  },
+  {
+    "stop_id": "141243",
+    "name": "MARCONI DANTE",
+    "lat": 43.75433,
+    "lon": 11.192532,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:47",
+      "20:32"
+    ]
+  },
+  {
+    "stop_id": "141312",
+    "name": "SAN BARTOLO MANZONI",
+    "lat": 43.753067,
+    "lon": 11.185397,
+    "directions": [
+      0
+    ],
+    "orari": [
+      "13:49",
+      "20:34"
+    ]
+  },
+  {
+    "stop_id": "141317",
+    "name": "SAN BARTOLO GIOVANNI XXIII",
+    "lat": 43.754272,
+    "lon": 11.183153,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:52",
+      "12:26",
+      "18:56"
+    ]
+  },
+  {
+    "stop_id": "141318",
+    "name": "MARCONI IMPIANTI SPORTIVI",
+    "lat": 43.75442,
+    "lon": 11.193005,
+    "directions": [
+      1
+    ],
+    "orari": [
+      "07:55",
+      "12:29",
+      "18:59"
+    ]
+  }
+]
