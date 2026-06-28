@@ -1,128 +1,446 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Monitor Linee Firenze Live</title>
 
-    <!DOCTYPE html>
-    <html lang="it">
-    <head>
-        <meta charset="UTF-8">
-        <style>
-            body { background-color: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 10px; }
-            .header { background: #111; padding: 10px; border-bottom: 3px solid #f1c40f; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-            .container { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-            .card { background: #0f0f0f; border-radius: 8px; padding: 12px; border: 1px solid #222; position: relative; transition: all 0.3s; min-height: 400px; }
-            .badge { position: absolute; top: -8px; right: 8px; padding: 2px 8px; border-radius: 10px; font-size: 0.6rem; font-weight: 900; z-index: 10; text-transform: uppercase; }
-            .badge-goal { background: #2ecc71; color: #000; box-shadow: 0 0 10px #2ecc71; }
-            .badge-pressure { background: #f1c40f; color: #000; box-shadow: 0 0 10px #f1c40f; }
-            
-            .card.goal-alert { border: 2.5px solid #2ecc71 !important; background: #051a05 !important; animation: blink 1s infinite; }
-            .card.high-pressure { border: 2.5px solid #f1c40f !important; }
-            .card.over-70 { border: 1px solid #8e44ad; } /* Bordo Viola */
-            
-            @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
-            .score { font-size: 2rem; font-weight: 900; text-align: center; margin: 5px 0; color: #fff; }
-            .goal-list { font-size: 0.65rem; color: #aaa; text-align: center; margin-bottom: 10px; min-height: 15px; font-style: italic; }
-            .xg-badge { background: #1a1a1a; color: #f1c40f; font-size: 0.75rem; text-align: center; padding: 5px; border-radius: 4px; margin: 8px 0; font-weight: bold; border: 1px solid #333; }
-            .stat-section { font-size: 0.55rem; color: #f1c40f; text-transform: uppercase; margin-top: 10px; border-bottom: 1px solid #222; padding-bottom: 2px; }
-            .stat-row { display: flex; justify-content: space-between; font-size: 0.75rem; padding: 3px 0; border-bottom: 1px solid #111; }
-            .v-h { color: #3498db; font-weight: bold; width: 35px; }
-            .v-a { color: #2ecc71; font-weight: bold; width: 35px; text-align: right; }
-            .label { color: #888; flex-grow: 1; text-align: center; font-size: 0.65rem; }
-            .red-c { background: #e74c3c; color: white; padding: 0 4px; border-radius: 2px; }
-        </style>
-        <meta http-equiv="refresh" content="35">
-    </head>
-    <body>
-        <div class="header">
-            <div><h1 style="margin:0; font-size:1.3rem; color:#f1c40f;">MIZAR DEEP PREDICTOR PRO</h1><small>SCANNER ATTIVO: 18:33:59</small></div>
-            <img src="https://chart.googleapis.com/chart?chs=80x80&cht=qr&chl=https://t.me/scanner_bet_money&choe=UTF-8" width="55" style="background:white; border-radius:4px; padding:2px;">
-        </div>
-        <div class="container">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#map {
+    width: 100%;
+    height: 100vh;
+}
+
+.info-box {
+    position: absolute;
+    z-index: 1000;
+    top: 55px; 
+    left: 10px;
+    background: rgba(255,255,255,0.95);
+    padding: 12px 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    font-size: 14px;
+    min-width: 280px;
+}
+
+.selector-container {
+    margin-bottom: 10px;
+}
+
+.selector-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+select {
+    width: 100%;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* BUS ICON */
+.bus-wrap {
+    position: relative;
+    width: 34px;
+    height: 34px;
+}
+
+.bus-dot {
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    width: 16px; 
+    height: 16px; 
+    border-radius: 50%;
+    border: 2.0px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+.bus-dot.dir0 { background: #1e88e5; }
+.bus-dot.dir1 { background: #e53935; }
+
+.leaflet-popup-content {
+    font-size: 13px;
+}
+
+.timetable-container {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.time-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    margin: 2px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.time-past {
+    background-color: #ffebee;
+    color: #c62828; 
+    font-weight: normal;
+}
+
+.time-next-immediate {
+    background-color: #e8f5e9;
+    color: #2e7d32; 
+    border: 1px solid #a5d6a7;
+}
+
+.time-next-future {
+    background-color: #f5f5f5;
+    color: #424242; 
+    font-weight: normal;
+}
+</style>
+</head>
+
+<body>
+
+<div class="info-box">
+    <div class="selector-container">
+        <label for="route-selector">Seleziona Linea Urbano Firenze:</label>
+        <select id="route-selector">
+            <option value="">Caricamento linee...</option>
+        </select>
+    </div>
+    <div id="stats">
+        Seleziona una linea per visualizzare i dettagli.
+    </div>
+</div>
+
+<div id="map"></div>
+
+<script>
+
+const map = L.map('map').setView([43.772, 11.255], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+// ================= PANE CUSTOM FERMATE =================
+map.createPane('stops-pane');
+map.getPane('stops-pane').style.zIndex = 600;
+map.getPane('stops-pane').style.pointerEvents = 'none';
+
+// ================= STATE =================
+let currentLine = "";
+const markers = {};   
+const busState = {};
+let busDirections = {}; 
+
+let shapeLayersDir0 = [];
+let shapeLayersDir1 = [];
+let stopMarkers = [];
+let updateInterval = null;
+
+// Rilevamento automatico della posizione del server
+const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+
+function makeBusIcon(direction) {
+    return L.divIcon({
+        className: "",
+        html: `
+            <div class="bus-wrap">
+                <div class="bus-dot ${Number(direction) === 0 ? "dir0" : "dir1"}"></div>
+            </div>
+        `,
+        iconSize: [34, 34],
+        iconAnchor: [17, 17]
+    });
+}
+
+function clearShapes(){
+    shapeLayersDir0.forEach(l => map.removeLayer(l));
+    shapeLayersDir1.forEach(l => map.removeLayer(l));
+    shapeLayersDir0 = [];
+    shapeLayersDir1 = [];
+}
+
+function clearStops(){
+    stopMarkers.forEach(m => map.removeLayer(m));
+    stopMarkers = [];
+}
+
+function clearAllMarkers() {
+    Object.keys(markers).forEach(id => {
+        map.removeLayer(markers[id]);
+        delete markers[id];
+        delete busState[id];
+        delete busDirections[id];
+    });
+}
+                
+// ================= SHAPES =================
+function loadShapes(){
+    if(!currentLine) return;
     
-        <div class="card over-70 high-pressure">
-            <div class="badge badge-pressure">🔥 PRESSIONE</div>
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">45+49</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">NK Slaven Belupo</div>
-            <div class="score">1-1</div>
-            <div class="goal-list">⚽51' ⚽33'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">NK Lokomotiva Zagreb</div>
-            <div class="xg-badge">xG PREDICTION: 1.75 - 0.35</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">9</span><span class="label">TIRI TOT.</span><span class="v-a">2</span></div><div class="stat-row"><span class="v-h">5</span><span class="label">IN PORTA</span><span class="v-a">1</span></div><div class="stat-row"><span class="v-h">4</span><span class="label">FUORI</span><span class="v-a">1</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">8</span><span class="label">ANGOLI</span><span class="v-a">4</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN AREA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">65%</span><span class="label">POSSESSO %</span><span class="v-a">35%</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PASSAGGI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">1</span><span class="label">GIALLI</span><span class="v-a">3</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div>
-        <div class="card over-70">
-            
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">75'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">AS Douanes</div>
-            <div class="score">0-0</div>
-            <div class="goal-list"></div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Sporting Cascades</div>
-            <div class="xg-badge">xG PREDICTION: 0.0 - 0.0</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">0</span><span class="label">TIRI TOT.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN PORTA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FUORI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">2</span><span class="label">ANGOLI</span><span class="v-a">7</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN AREA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">45%</span><span class="label">POSSESSO %</span><span class="v-a">55%</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PASSAGGI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">1</span><span class="label">GIALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div>
-        <div class="card">
-            
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">33'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Manisa FK</div>
-            <div class="score">1-0</div>
-            <div class="goal-list">⚽11'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Sarıyer</div>
-            <div class="xg-badge">xG PREDICTION: 0.9 - 0.3</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">4</span><span class="label">TIRI TOT.</span><span class="v-a">4</span></div><div class="stat-row"><span class="v-h">2</span><span class="label">IN PORTA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">2</span><span class="label">FUORI</span><span class="v-a">2</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">2</span></div><div class="stat-row"><span class="v-h">1</span><span class="label">ANGOLI</span><span class="v-a">1</span></div><div class="stat-row"><span class="v-h">2</span><span class="label">IN AREA</span><span class="v-a">3</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">54%</span><span class="label">POSSESSO %</span><span class="v-a">46%</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">185</span><span class="label">PASSAGGI</span><span class="v-a">157</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">1</span></div><div class="stat-row"><span class="v-h">2</span><span class="label">FALLI</span><span class="v-a">3</span></div><div class="stat-row"><span class="v-h">2</span><span class="label">GIALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div>
-        <div class="card">
-            
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">33'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">NEC FC</div>
-            <div class="score">0-0</div>
-            <div class="goal-list"></div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Entebbe UPPC FC</div>
-            <div class="xg-badge">xG PREDICTION: 0.0 - 0.0</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">0</span><span class="label">TIRI TOT.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN PORTA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FUORI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ANGOLI</span><span class="v-a">4</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN AREA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">40%</span><span class="label">POSSESSO %</span><span class="v-a">60%</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PASSAGGI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">1</span><span class="label">GIALLI</span><span class="v-a">1</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div>
-        <div class="card">
-            
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">32'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Mochudi Centre Chiefs</div>
-            <div class="score">1-0</div>
-            <div class="goal-list">⚽19'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Jwaneng Galaxy FC</div>
-            <div class="xg-badge">xG PREDICTION: 0.0 - 0.0</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">0</span><span class="label">TIRI TOT.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN PORTA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FUORI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ANGOLI</span><span class="v-a">2</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN AREA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">0</span><span class="label">POSSESSO %</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PASSAGGI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GIALLI</span><span class="v-a">1</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div>
-        <div class="card">
-            
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">32'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Þór Akureyri</div>
-            <div class="score">1-1</div>
-            <div class="goal-list">⚽28' ⚽21'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Valur Reykjavík</div>
-            <div class="xg-badge">xG PREDICTION: 0.0 - 0.0</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">0</span><span class="label">TIRI TOT.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN PORTA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FUORI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">3</span><span class="label">ANGOLI</span><span class="v-a">2</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN AREA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">0</span><span class="label">POSSESSO %</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PASSAGGI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">1</span><span class="label">GIALLI</span><span class="v-a">1</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div>
-        <div class="card">
-            
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">3'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">ORBIT College FC</div>
-            <div class="score">0-0</div>
-            <div class="goal-list"></div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Mamelodi Sundowns</div>
-            <div class="xg-badge">xG PREDICTION: 0.0 - 0.0</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">0</span><span class="label">TIRI TOT.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN PORTA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FUORI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ANGOLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN AREA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">23%</span><span class="label">POSSESSO %</span><span class="v-a">77%</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">6</span><span class="label">PASSAGGI</span><span class="v-a">22</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FALLI</span><span class="v-a">1</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GIALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div>
-        <div class="card">
-            
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">3'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">FK Sloga Doboj</div>
-            <div class="score">0-0</div>
-            <div class="goal-list"></div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">FK Željezničar</div>
-            <div class="xg-badge">xG PREDICTION: 0.0 - 0.0</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">0</span><span class="label">TIRI TOT.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN PORTA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FUORI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ANGOLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN AREA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">67%</span><span class="label">POSSESSO %</span><span class="v-a">33%</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PASSAGGI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">1</span><span class="label">GIALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div>
-        <div class="card">
-            
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">1'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Al Bataeh</div>
-            <div class="score">0-0</div>
-            <div class="goal-list"></div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Ajman</div>
-            <div class="xg-badge">xG PREDICTION: 0.0 - 0.0</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">0</span><span class="label">TIRI TOT.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN PORTA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FUORI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ANGOLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN AREA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">100%</span><span class="label">POSSESSO %</span><span class="v-a">0%</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">1</span><span class="label">PASSAGGI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GIALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div>
-        <div class="card">
-            
-            <div style="font-size:0.8rem; color:#f1c40f; font-weight:bold;">1'</div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Al-Dhafra</div>
-            <div class="score">0-0</div>
-            <div class="goal-list"></div>
-            <div style="text-align:center; font-size:0.9rem; font-weight:bold; color:#eee; height:1.1rem; overflow:hidden;">Al-Jazira</div>
-            <div class="xg-badge">xG PREDICTION: 0.0 - 0.0</div>
-        <div class="stat-section">Attacco</div><div class="stat-row"><span class="v-h">0</span><span class="label">TIRI TOT.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN PORTA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FUORI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">RIBATTUTI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ANGOLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">IN AREA</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GRANDI OCC.</span><span class="v-a">0</span></div><div class="stat-section">Manovra</div><div class="stat-row"><span class="v-h">80%</span><span class="label">POSSESSO %</span><span class="v-a">20%</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. PERIC.</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ATT. TOTALI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">4</span><span class="label">PASSAGGI</span><span class="v-a">1</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">PREC. PASS %</span><span class="v-a">0</span></div><div class="stat-section">Difesa & Disciplina</div><div class="stat-row"><span class="v-h">0</span><span class="label">PARATE</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">FALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">GIALLI</span><span class="v-a">0</span></div><div class="stat-row"><span class="v-h">0</span><span class="label">ROSSI</span><span class="v-a">0</span></div></div></div></body></html>
+    const url = isLocal ? `/shape?linea=${currentLine}` : `shape_${currentLine}.json`;
+    
+    fetch(url)
+    .then(r=>r.json())
+    .then(data=>{
+        clearShapes();
+        const all0 = data.shapes?.["0"] || [];
+        const all1 = data.shapes?.["1"] || [];
+        const drawnSegments = new Set();
+
+        all0.forEach(shape => {
+            const pts = shape.points.map(p => [p[0], p[1]]);
+            if(pts.length < 2) return;
+            for (let i = 0; i < pts.length - 1; i++) {
+                const p1 = pts[i];
+                const p2 = pts[i+1];
+                drawnSegments.add(`${p1[0].toFixed(5)},${p1[1].toFixed(5)}->${p2[0].toFixed(5)},${p2[1].toFixed(5)}`);
+                drawnSegments.add(`${p2[0].toFixed(5)},${p2[1].toFixed(5)}->${p1[0].toFixed(5)},${p1[1].toFixed(5)}`);
+            }
+            const poly = L.polyline(pts, { color: "#1e88e5", weight: 4, opacity: 0.85 }).addTo(map);
+            shapeLayersDir0.push(poly);
+        });
+
+        all1.forEach(shape => {
+            const pts = shape.points.map(p => [p[0], p[1]]);
+            if(pts.length < 2) return;
+            for (let i = 0; i < pts.length - 1; i++) {
+                const p1 = pts[i];
+                const p2 = pts[i+1];
+                const segmentKey = `${p1[0].toFixed(5)},${p1[1].toFixed(5)}->${p2[0].toFixed(5)},${p2[1].toFixed(5)}`;
+                const isOverlap = drawnSegments.has(segmentKey);
+                const segmentColor = isOverlap ? "#9c27b0" : "#e53935";
+                const polySegment = L.polyline([p1, p2], { color: segmentColor, weight: isOverlap ? 5 : 4, opacity: 0.9 }).addTo(map);
+                shapeLayersDir1.push(polySegment);
+            }
+        });
+    });
+}
+
+// ================= FERMATE + FILTRO ORARI DINAMICO =================
+function loadStops(){
+    if(!currentLine) return;
+    
+    const url = isLocal ? `/stops?linea=${currentLine}` : `stops_${currentLine}.json`;
+    
+    fetch(url)
+    .then(r=>r.json())
+    .then(data=>{
+        clearStops();
+        data.forEach(stop=>{
+            const m = L.circleMarker([stop.lat, stop.lon],{
+                radius: 5,
+                color: "#333",
+                weight: 1.5,
+                fillColor: "#ffca28", 
+                fillOpacity: 0.9,
+                pane: 'stops-pane'
+            }).addTo(map);
+
+            m.stopDirections = stop.directions || [];
+
+            m.on('click', () => {
+                const now = new Date();
+                const nowStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+                const orari = stop.orari || [];
+                
+                const passati = orari.filter(t => t < nowStr);
+                const futuri = orari.filter(t => t >= nowStr);
+                
+                const ultimiPassati = passati.slice(-2);
+                const primiDueFuturi = futuri.slice(0, 2);
+                const successiviTreFuturi = futuri.slice(2, 5);
+                
+                let htmlOrari = "<div class='timetable-container'>";
+                if (ultimiPassati.length === 0 && primiDueFuturi.length === 0 && successiviTreFuturi.length === 0) {
+                    htmlOrari += "<i>Nessun passaggio programmato per oggi</i>";
+                } else {
+                    htmlOrari += "⏱️ <b>Passaggi rilevanti:</b><br>";
+                    ultimiPassati.forEach(t => { htmlOrari += `<span class="time-tag time-past">${t}</span>`; });
+                    primiDueFuturi.forEach(t => { htmlOrari += `<span class="time-tag time-next-immediate">${t}</span>`; });
+                    successiviTreFuturi.forEach(t => { htmlOrari += `<span class="time-tag time-next-future">${t}</span>`; });
+                }
+                htmlOrari += "</div>";
+                m.setPopupContent(`<b>🚏 ${stop.name}</b>${htmlOrari}`);
+            });
+
+            m.bindPopup(`<b>🚏 ${stop.name}</b><br><small>Clicca per gli orari</small>`);
+            stopMarkers.push(m);
+        });
+    });
+}
+
+function popupHtml(bus) {
+    return `
+        <b>Linea ${bus.linea}</b><br>
+        ${bus.linea_long_name || ''}<br>
+        <small>${bus.direction_name || ''}</small>
+    `;
+}
+
+// =====================
+// UPDATE BUS + HOVER TOTALE (LINEE, BUS, FERMATE)
+// =====================
+function updateBus() {
+    if(!currentLine) return;
+
+    const url = isLocal ? `/bus?linea=${currentLine}` : `https://raw.githubusercontent.com/mizar11it/Scanner_Bet/main/live_bus.json`;
+
+    fetch(url)
+        .then(r => r.json())
+        .then(rawDati => {
+            let dir0 = 0;
+            let dir1 = 0;
+            const seen = new Set();
+
+            const data = isLocal ? rawDati : rawDati.filter(b => b.linea === currentLine);
+
+            data.forEach(bus => {
+                const id = bus.bus_id;
+                seen.add(id);
+
+                const lat = Number(bus.lat);
+                const lon = Number(bus.lon);
+                const currentDir = Number(bus.direction);
+
+                if (currentDir === 0) dir0++;
+                else dir1++;
+
+                busState[id] = { lat, lon };
+                busDirections[id] = currentDir;
+
+                if (!markers[id]) {
+                    const m = L.marker([lat, lon], {
+                        icon: makeBusIcon(bus.direction)
+                    }).addTo(map);
+
+                    m.bindPopup(popupHtml(bus));
+                    
+                    m.on("mouseover", () => {
+                        m.openPopup();
+                        if (currentDir === 0) {
+                            shapeLayersDir1.forEach(l => map.removeLayer(l));
+                            Object.keys(markers).forEach(bid => {
+                                if(busDirections[bid] === 1) map.removeLayer(markers[bid]);
+                            });
+                            stopMarkers.forEach(sm => {
+                                if (sm.stopDirections.includes(1) && !sm.stopDirections.includes(0)) {
+                                    map.removeLayer(sm);
+                                }
+                            });
+                        } else {
+                            shapeLayersDir0.forEach(l => map.removeLayer(l));
+                            Object.keys(markers).forEach(bid => {
+                                if(busDirections[bid] === 0) map.removeLayer(markers[bid]);
+                            });
+                            stopMarkers.forEach(sm => {
+                                if (sm.stopDirections.includes(0) && !sm.stopDirections.includes(1)) {
+                                    map.removeLayer(sm);
+                                }
+                            });
+                        }
+                    });
+
+                    m.on("mouseout", () => {
+                        m.closePopup();
+                        shapeLayersDir0.forEach(l => l.addTo(map));
+                        shapeLayersDir1.forEach(l => l.addTo(map));
+                        Object.keys(markers).forEach(bid => { markers[bid].addTo(map); });
+                        stopMarkers.forEach(sm => { sm.addTo(map); });
+                    });
+
+                    markers[id] = m;
+                } else {
+                    markers[id].setLatLng([lat, lon]);
+                    markers[id].setIcon(makeBusIcon(bus.direction));
+                    markers[id].setPopupContent(popupHtml(bus));
+                }
+            });
+
+            Object.keys(markers).forEach(id => {
+                if (!seen.has(id)) {
+                    map.removeLayer(markers[id]);
+                    delete markers[id];
+                    delete busState[id];
+                    delete busDirections[id];
+                }
+            });
+
+            if (data.length > 0 || currentLine) {
+                const d0Name = data[0]?.dir0_name || "Capolinea A";
+                const d1Name = data[0]?.dir1_name || "Capolinea B";
+                document.getElementById("stats").innerHTML = `
+                    <b>Linea ${currentLine}</b><br><br>
+                    🔵 Direzione ===> ${d0Name}: ${dir0} bus<br>
+                    🔴 Direzione ===> ${d1Name}: ${dir1} bus
+                `;
+            }
+        })
+        .catch(err => console.error("Errore recupero bus:", err));
+}
+
+function initDropdown() {
+    const url = isLocal ? "/routes" : "routes.json";
+    
+    fetch(url)
+        .then(r => r.json())
+        .then(routes => {
+            const selector = document.getElementById("route-selector");
+            selector.innerHTML = '<option value="">-- Seleziona una linea --</option>';
+            routes.forEach(route => {
+                const opt = document.createElement("option");
+                opt.value = route;
+                opt.textContent = `Linea ${route}`;
+                selector.appendChild(opt);
+            });
+            if(routes.includes("6")) {
+                selector.value = "6";
+                changeLine("6");
+            }
+        });
+
+    document.getElementById("route-selector").addEventListener("change", (e) => {
+        changeLine(e.target.value);
+    });
+}
+
+function changeLine(linea) {
+    currentLine = linea;
+    clearAllMarkers();
+    clearShapes();
+    clearStops();
+    
+    if(!linea) {
+        document.getElementById("stats").innerHTML = "Seleziona una linea per visualizzare i dettagli.";
+        if(updateInterval) clearInterval(updateInterval);
+        return;
+    }
+
+    document.getElementById("stats").innerHTML = "Caricamento in corso...";
+    loadShapes();
+    loadStops();
+    updateBus();
+    
+    if(updateInterval) clearInterval(updateInterval);
+    updateInterval = setInterval(updateBus, 5000);
+}
+
+initDropdown();
+
+</script>
+</body>
+</html>
